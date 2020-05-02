@@ -14,7 +14,7 @@ public class PlayerInputReader : InputReader
         float vMovement = Input.GetAxisRaw("Vertical");
         
         var direction = new Vector3(hMovement,0,vMovement);
-        return direction;
+        return direction.normalized;
     }
 
     public override Quaternion GetRotation(Vector3 rotationPoint)
