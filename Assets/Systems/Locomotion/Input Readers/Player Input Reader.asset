@@ -15,4 +15,4 @@ MonoBehaviour:
   maxFloorRayDistance: 100
   floorLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
