@@ -20,7 +20,7 @@ public class CharacterMovement : MonoBehaviour
     
     private void Awake()
     {
-        controller = GetComponent<CharacterController>();
+        controller = GetComponent<CharacterController>(); //no DI?
     }
 
     private void Update()
