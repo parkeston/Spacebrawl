@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 483288343}
   - component: {fileID: 483288342}
   - component: {fileID: 483288341}
+  - component: {fileID: 483288346}
   m_Layer: 0
   m_Name: Energy+Health Cell
   m_TagString: Untagged
@@ -285,16 +286,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d226f9c17f05743845975b78af97fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modifiers:
-  - statTypeToAffect: {fileID: 11400000, guid: 8db521b51eba2e2468ae19002122e641, type: 2}
+  modifier:
+    statTypeToAffect: {fileID: 11400000, guid: 8db521b51eba2e2468ae19002122e641, type: 2}
     statModifierBehaviour: {fileID: 11400000, guid: d422a7921f218354cb2db17562963f94,
       type: 2}
     statAlterAmount: 20
-  - statTypeToAffect: {fileID: 11400000, guid: c3f5330be132d87428975aa70435a415, type: 2}
-    statModifierBehaviour: {fileID: 11400000, guid: d422a7921f218354cb2db17562963f94,
-      type: 2}
-    statAlterAmount: 1
-  isTrigger: 1
   destroyOnModify: 1
 --- !u!135 &483288342
 SphereCollider:
@@ -370,6 +366,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &483288346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483288340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d226f9c17f05743845975b78af97fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier:
+    statTypeToAffect: {fileID: 11400000, guid: c3f5330be132d87428975aa70435a415, type: 2}
+    statModifierBehaviour: {fileID: 11400000, guid: d422a7921f218354cb2db17562963f94,
+      type: 2}
+    statAlterAmount: 1
+  destroyOnModify: 1
 --- !u!1 &522007279
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,12 +416,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d226f9c17f05743845975b78af97fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modifiers:
-  - statTypeToAffect: {fileID: 11400000, guid: 8db521b51eba2e2468ae19002122e641, type: 2}
+  modifier:
+    statTypeToAffect: {fileID: 11400000, guid: 8db521b51eba2e2468ae19002122e641, type: 2}
     statModifierBehaviour: {fileID: 11400000, guid: e3bca9d24f34acd498d632b8b4d0f765,
       type: 2}
     statAlterAmount: -20
-  isTrigger: 1
   destroyOnModify: 0
 --- !u!135 &522007281
 SphereCollider:

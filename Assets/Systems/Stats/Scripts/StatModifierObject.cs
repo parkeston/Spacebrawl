@@ -6,8 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class StatModifierObject : MonoBehaviour
 {
-    [SerializeField] private StatModifier[] modifiers;
-    [SerializeField] private bool isTrigger;
+    [SerializeField] private StatModifier modifier;
     [SerializeField] private bool destroyOnModify;
 
     private Collider collider;
@@ -15,12 +14,7 @@ public class StatModifierObject : MonoBehaviour
     private void Awake()
     {
         collider = GetComponent<Collider>();
-        collider.isTrigger = isTrigger;
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        ModifyOnCollision(other.gameObject.GetComponents<IStat>());
+        collider.isTrigger = true; //if player is character controller then only trigger events are caught (can use 2 separate colliders for trigger & physics)
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,11 +27,7 @@ public class StatModifierObject : MonoBehaviour
         if(stats==null || stats.Length==0)
             return;
         
-        foreach (var modifier in modifiers)
-        {
-            modifier.Modify(stats);
-        }
-        
+        modifier.Modify(stats);
         if(destroyOnModify)
             Destroy(gameObject);
     }
