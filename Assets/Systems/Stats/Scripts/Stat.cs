@@ -6,16 +6,16 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 [Serializable]
-public class Stat: MonoBehaviour, IResource, IConsumable
+public class Stat: MonoBehaviour, IStat, IConsumable
 {
-    [SerializeField] private ResourceType resourceType;
+    [SerializeField] private StatType statType;
     [SerializeField] private float maxValue;
     [SerializeField] private float startingValue;
 
     private float value;
     
-    public ResourceType ResourceType => resourceType;
-    public float ResourceValue => value;
+    public StatType StatType => statType;
+    public float StatValue => value;
 
     private void Awake()
     {
@@ -28,7 +28,7 @@ public class Stat: MonoBehaviour, IResource, IConsumable
             startingValue = maxValue;
     }
 
-    public void AlterResourceAmount(float alterAmount)
+    public void ModifyStatValue(float alterAmount)
     {
         value += alterAmount;
         if (value > maxValue)

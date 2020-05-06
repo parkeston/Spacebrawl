@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
-public class ResourceAffectorObject : MonoBehaviour
+public class StatModifierObject : MonoBehaviour
 {
-    [SerializeField] private ResourceAffector[] affectors;
+    [SerializeField] private StatModifier[] modifiers;
     [SerializeField] private bool isTrigger;
-    [SerializeField] private bool destroyOnAffect;
+    [SerializeField] private bool destroyOnModify;
 
     private Collider collider;
 
@@ -20,25 +20,25 @@ public class ResourceAffectorObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        AffectOnCollision(other.gameObject.GetComponents<IResource>());
+        ModifyOnCollision(other.gameObject.GetComponents<IStat>());
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        AffectOnCollision(other.GetComponents<IResource>());
+        ModifyOnCollision(other.GetComponents<IStat>());
     }
 
-    private void AffectOnCollision(IResource[] resources)
+    private void ModifyOnCollision(IStat[] stats)
     {
-        if(resources==null || resources.Length==0)
+        if(stats==null || stats.Length==0)
             return;
         
-        foreach (var affector in affectors)
+        foreach (var modifier in modifiers)
         {
-            affector.Affect(resources);
+            modifier.Modify(stats);
         }
         
-        if(destroyOnAffect)
+        if(destroyOnModify)
             Destroy(gameObject);
     }
 }

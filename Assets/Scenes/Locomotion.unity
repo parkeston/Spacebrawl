@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad714f051315334b8580d2a81ad7e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceType: {fileID: 11400000, guid: 8db521b51eba2e2468ae19002122e641, type: 2}
+  statType: {fileID: 11400000, guid: 8db521b51eba2e2468ae19002122e641, type: 2}
   maxValue: 100
   startingValue: 100
 --- !u!114 &380810735
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad714f051315334b8580d2a81ad7e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceType: {fileID: 11400000, guid: c3f5330be132d87428975aa70435a415, type: 2}
+  statType: {fileID: 11400000, guid: c3f5330be132d87428975aa70435a415, type: 2}
   maxValue: 4
   startingValue: 0
 --- !u!1 &483288340
@@ -285,19 +285,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d226f9c17f05743845975b78af97fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  affectors:
-  - resourceTypeToAffect: {fileID: 11400000, guid: c3f5330be132d87428975aa70435a415,
+  modifiers:
+  - statTypeToAffect: {fileID: 11400000, guid: 8db521b51eba2e2468ae19002122e641, type: 2}
+    statModifierBehaviour: {fileID: 11400000, guid: d422a7921f218354cb2db17562963f94,
       type: 2}
-    resourceAffectorProcessor: {fileID: 11400000, guid: d422a7921f218354cb2db17562963f94,
+    statAlterAmount: 20
+  - statTypeToAffect: {fileID: 11400000, guid: c3f5330be132d87428975aa70435a415, type: 2}
+    statModifierBehaviour: {fileID: 11400000, guid: d422a7921f218354cb2db17562963f94,
       type: 2}
-    resourceAlterAmount: 1
-  - resourceTypeToAffect: {fileID: 11400000, guid: 8db521b51eba2e2468ae19002122e641,
-      type: 2}
-    resourceAffectorProcessor: {fileID: 11400000, guid: d422a7921f218354cb2db17562963f94,
-      type: 2}
-    resourceAlterAmount: 20
+    statAlterAmount: 1
   isTrigger: 1
-  destroyOnAffect: 1
+  destroyOnModify: 1
 --- !u!135 &483288342
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -404,14 +402,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d226f9c17f05743845975b78af97fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  affectors:
-  - resourceTypeToAffect: {fileID: 11400000, guid: 8db521b51eba2e2468ae19002122e641,
+  modifiers:
+  - statTypeToAffect: {fileID: 11400000, guid: 8db521b51eba2e2468ae19002122e641, type: 2}
+    statModifierBehaviour: {fileID: 11400000, guid: e3bca9d24f34acd498d632b8b4d0f765,
       type: 2}
-    resourceAffectorProcessor: {fileID: 11400000, guid: d422a7921f218354cb2db17562963f94,
-      type: 2}
-    resourceAlterAmount: -20
+    statAlterAmount: -20
   isTrigger: 1
-  destroyOnAffect: 1
+  destroyOnModify: 0
 --- !u!135 &522007281
 SphereCollider:
   m_ObjectHideFlags: 0

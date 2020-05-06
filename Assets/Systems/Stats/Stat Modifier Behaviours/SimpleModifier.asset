@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b16072d78be0cc429fb9dff45925033, type: 3}
-  m_Name: AbsolutePercentProcessor
+  m_Name: SimpleModifier
   m_EditorClassIdentifier: 
-  processingType: 2
+  modifierType: 0
