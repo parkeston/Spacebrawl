@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -22,12 +23,6 @@ public class Stat: MonoBehaviour, IStat, IConsumable
         value = startingValue;
     }
 
-    private void OnValidate()
-    {
-        if (startingValue > maxValue)
-            startingValue = maxValue;
-    }
-
     public void ModifyStatValue(float alterAmount)
     {
         value += alterAmount;
@@ -42,6 +37,18 @@ public class Stat: MonoBehaviour, IStat, IConsumable
 
         value -= consumeAmount;
         return true;
+    }
+    
+    private void OnValidate()
+    {
+        if (startingValue > maxValue)
+            startingValue = maxValue;
+
+        if (GetComponents<IStat>().Any(stat => stat != this && stat.StatType == StatType))
+        {
+            Debug.LogError($"{name} cannot have more than one {StatType.name} stat type!");
+            statType = null;
+        }
     }
 }
 

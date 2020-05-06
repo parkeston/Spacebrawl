@@ -19,6 +19,8 @@ public class StatModifier
                 var alterValue =
                     statModifierBehaviour.CalculateAffectValue(statAlterAmount, stat.StatValue);
                 stat.ModifyStatValue(alterValue);
+                
+                break; //only one unique stat type possible on a game object
             }
         }
     }
