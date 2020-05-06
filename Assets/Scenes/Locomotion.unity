@@ -238,6 +238,9 @@ MonoBehaviour:
   statType: {fileID: 11400000, guid: 8db521b51eba2e2468ae19002122e641, type: 2}
   maxValue: 100
   startingValue: 100
+  OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &380810735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +256,9 @@ MonoBehaviour:
   statType: {fileID: 11400000, guid: c3f5330be132d87428975aa70435a415, type: 2}
   maxValue: 4
   startingValue: 0
+  OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &483288340
 GameObject:
   m_ObjectHideFlags: 0

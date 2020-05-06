@@ -7,11 +7,14 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 [Serializable]
+public class FloatEvent: UnityEvent<float>{}
+
 public class Stat: MonoBehaviour, IStat, IConsumable
 {
     [SerializeField] private StatType statType;
     [SerializeField] private float maxValue;
     [SerializeField] private float startingValue;
+    [SerializeField] private FloatEvent OnValueChanged;
 
     private float value;
     
@@ -28,6 +31,8 @@ public class Stat: MonoBehaviour, IStat, IConsumable
         value += alterAmount;
         if (value > maxValue)
             value = maxValue;
+        
+        OnValueChanged?.Invoke(value);
     }
 
     public bool Consume(float consumeAmount)
