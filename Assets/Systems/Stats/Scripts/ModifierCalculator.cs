@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class StatModifierCalculator : ScriptableObject
+public class ModifierCalculator : ScriptableObject
 {
    [SerializeField] private ModifierType modifierType;
 

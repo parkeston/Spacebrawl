@@ -271,8 +271,8 @@ GameObject:
   - component: {fileID: 483288344}
   - component: {fileID: 483288343}
   - component: {fileID: 483288342}
-  - component: {fileID: 483288341}
   - component: {fileID: 483288346}
+  - component: {fileID: 483288341}
   m_Layer: 0
   m_Name: Energy+Health Cell
   m_TagString: Untagged
@@ -289,18 +289,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 483288340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7d226f9c17f05743845975b78af97fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 9179cfc68986d814cb4e3e63e3b92c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: 0
-  statModifierEffect:
-    statTypeToAffect: {fileID: 11400000, guid: 8db521b51eba2e2468ae19002122e641, type: 2}
-    statModifierCalculator: {fileID: 11400000, guid: d422a7921f218354cb2db17562963f94,
-      type: 2}
-    statModifierBehaviour: {fileID: 11400000, guid: cecd2aca83f2b624488a12e8a0ac05f6,
-      type: 2}
-    statAlterAmount: 20
-  destroyOnModify: 1
+  statToAffect: {fileID: 11400000, guid: c3f5330be132d87428975aa70435a415, type: 2}
+  modifierCalculator: {fileID: 11400000, guid: d422a7921f218354cb2db17562963f94, type: 2}
+  statAlterAmount: 1
+  disableOnModify: 0
 --- !u!135 &483288342
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -384,18 +380,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 483288340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7d226f9c17f05743845975b78af97fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 9179cfc68986d814cb4e3e63e3b92c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: 0
-  statModifierEffect:
-    statTypeToAffect: {fileID: 11400000, guid: c3f5330be132d87428975aa70435a415, type: 2}
-    statModifierCalculator: {fileID: 11400000, guid: d422a7921f218354cb2db17562963f94,
-      type: 2}
-    statModifierBehaviour: {fileID: 11400000, guid: cecd2aca83f2b624488a12e8a0ac05f6,
-      type: 2}
-    statAlterAmount: 1
-  destroyOnModify: 1
+  statToAffect: {fileID: 11400000, guid: 8db521b51eba2e2468ae19002122e641, type: 2}
+  modifierCalculator: {fileID: 11400000, guid: d422a7921f218354cb2db17562963f94, type: 2}
+  statAlterAmount: -20
+  disableOnModify: 0
 --- !u!1 &522007279
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,18 +417,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 522007279}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7d226f9c17f05743845975b78af97fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 56cc936fb4d7dc943a701e064be1098f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: 0
-  statModifierEffect:
-    statTypeToAffect: {fileID: 11400000, guid: 8db521b51eba2e2468ae19002122e641, type: 2}
-    statModifierCalculator: {fileID: 11400000, guid: d422a7921f218354cb2db17562963f94,
-      type: 2}
-    statModifierBehaviour: {fileID: 11400000, guid: aae6de5001704884192698a8ea00b2c0,
-      type: 2}
-    statAlterAmount: -10
-  destroyOnModify: 1
+  statToAffect: {fileID: 11400000, guid: 8db521b51eba2e2468ae19002122e641, type: 2}
+  modifierCalculator: {fileID: 11400000, guid: d422a7921f218354cb2db17562963f94, type: 2}
+  statAlterAmount: -10
+  disableOnModify: 1
+  totalTime: 5
+  periodTime: 1
 --- !u!135 &522007281
 SphereCollider:
   m_ObjectHideFlags: 0

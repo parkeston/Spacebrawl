@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //find alternative to using enums
-public enum StatModifierTrigger
+public enum ModifierTrigger
 {
     TriggerEnter,
     TriggerExit,
