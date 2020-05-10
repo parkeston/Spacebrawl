@@ -4,21 +4,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class StatModifier
+public class StatModifierEffect
 {
     [SerializeField] private StatType statTypeToAffect;
+    [SerializeField] private StatModifierCalculator statModifierCalculator;
     [SerializeField] private StatModifierBehaviour statModifierBehaviour;
     [SerializeField] private float statAlterAmount;
-
-    public void Modify(IStat[] stats)
+    
+    public void ApplyEffectTo(IStat[] stats)
     {
         foreach (var stat in stats)
         {
             if (stat.StatType == statTypeToAffect)
             {
                 var alterValue =
-                    statModifierBehaviour.CalculateAffectValue(statAlterAmount, stat.StatValue);
-                stat.ModifyStatValue(alterValue);
+                    statModifierCalculator.CalculateAffectValue(statAlterAmount, stat.StatValue);
+                statModifierBehaviour.ModifyStat(stat,alterValue);
                 
                 break; //only one unique stat type possible on a game object
             }

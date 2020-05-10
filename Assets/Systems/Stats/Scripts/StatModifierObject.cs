@@ -6,7 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class StatModifierObject : MonoBehaviour
 {
-    [SerializeField] private StatModifier modifier;
+    [SerializeField] private StatModifierTrigger trigger;
+    [SerializeField] private StatModifierEffect statModifierEffect;
     [SerializeField] private bool destroyOnModify;
 
     private Collider collider;
@@ -19,15 +20,29 @@ public class StatModifierObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        ModifyOnCollision(other.GetComponents<IStat>());
+        DelegateToModifier(StatModifierTrigger.TriggerEnter,other.GetComponents<IStat>());
     }
 
-    private void ModifyOnCollision(IStat[] stats)
+    private void OnTriggerStay(Collider other)
     {
-        if(stats==null || stats.Length==0)
+        DelegateToModifier(StatModifierTrigger.TriggerStay,other.GetComponents<IStat>());
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        DelegateToModifier(StatModifierTrigger.TriggerExit,other.GetComponents<IStat>());
+    }
+
+    private void DelegateToModifier(StatModifierTrigger trigger, IStat[] stats)
+    {
+        if(stats==null)
             return;
         
-        modifier.Modify(stats);
+        if(trigger!=this.trigger)
+            return;
+        
+        statModifierEffect.ApplyEffectTo(stats);
         if(destroyOnModify)
             Destroy(gameObject);
     }
