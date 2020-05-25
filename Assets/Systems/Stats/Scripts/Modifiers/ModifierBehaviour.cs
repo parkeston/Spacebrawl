@@ -5,44 +5,23 @@ using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
-public abstract class ModifierBehaviour : MonoBehaviour
+public abstract class ModifierBehaviour : TriggerEventCallback
 {
-    [SerializeField] private ModifierTrigger trigger;
-    
     [Header("Modifier effect")]
     [SerializeField] private StatType statToAffect;
     [SerializeField] private ModifierCalculator modifierCalculator;
     [SerializeField] private float statAlterAmount;
     [SerializeField] private bool disableOnModify;
 
-    private Collider collider;
+    //if player is character controller then only trigger events are caught (can use 2 separate colliders for trigger & physics)
 
-    private void Awake()
+    protected override void Callback(GameObject other)
     {
-        collider = GetComponent<Collider>();
-        collider.isTrigger = true; //if player is character controller then only trigger events are caught (can use 2 separate colliders for trigger & physics)
+        Modify(other.gameObject);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Modify(GameObject targetObject)
     {
-        Modify(other.gameObject, ModifierTrigger.TriggerEnter);
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        Modify(other.gameObject, ModifierTrigger.TriggerStay);
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        Modify(other.gameObject, ModifierTrigger.TriggerExit);
-    }
-    
-    private void Modify(GameObject targetObject, ModifierTrigger trigger)
-    {
-        if(trigger!=this.trigger)
-            return;
-
         var targetObjectStats = targetObject.GetComponents<IStat>();
         var statToModify = targetObjectStats?.FirstOrDefault((stat) => stat.StatType == statToAffect);
         if(statToModify == null)

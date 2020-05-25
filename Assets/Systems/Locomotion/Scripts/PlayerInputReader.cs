@@ -30,4 +30,23 @@ public class PlayerInputReader : InputReader
         
         return Quaternion.identity;
     }
+
+    //todo: cleanup?
+    public override int GetCombatInput()
+    {
+        if (Input.GetButtonDown("Fire1"))
+            return 1;
+        if (Input.GetButtonDown("Fire2"))
+            return 2;
+        if (Input.GetButtonDown("Fire3"))
+            return 3;
+        if (Input.GetButtonDown("Fire4"))
+            return 4;
+        if (Input.GetButtonDown("Fire5"))
+            return 5;
+        if (Input.GetButtonDown("Fire6"))
+            return 6;
+        
+        return 0;
+    }
 }

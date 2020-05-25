@@ -6,4 +6,5 @@ public abstract class InputReader : ScriptableObject
 {
     public abstract Vector3 GetMovementDirection();
     public abstract Quaternion GetRotation(Vector3 rotatingPoint);
+    public abstract int GetCombatInput();
 }

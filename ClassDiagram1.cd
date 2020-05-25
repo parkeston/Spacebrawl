@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CharacterMovement">
+    <Position X="2.75" Y="3.75" Width="1.75" />
+    <AssociationLine Name="inputReader" Type="InputReader" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4" Y="3.75" />
+        <Point X="4" Y="2.938" />
+        <Point X="6.417" Y="2.937" Type="JumpStart" />
+        <Point X="6.583" Y="2.938" Type="JumpEnd" />
+        <Point X="9.5" Y="2.938" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgAABAEAAACAAAAIAAAAAAAIAAQAAAAAAEA=</HashCode>
+      <FileName>Assets\Systems\Locomotion\Scripts\CharacterMovement.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="controller" />
+      <Field Name="inputReader" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="InputReader">
+    <Position X="9.5" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Systems\Locomotion\Scripts\InputReader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerInputReader">
+    <Position X="9.5" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAACAAAAAAAAAAAgAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Systems\Locomotion\Scripts\PlayerInputReader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LocomotionAnimator">
+    <Position X="5.5" Y="3.75" Width="1.75" />
+    <AssociationLine Name="inputReader" Type="InputReader" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.938" Y="3.75" />
+        <Point X="6.938" Y="3.312" />
+        <Point X="9.5" Y="3.312" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgAAAAAQAIAAAAAIAAAAAABAAgAEAAAAAEA=</HashCode>
+      <FileName>Assets\Systems\Locomotion\Scripts\LocomotionAnimator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="inputReader" />
+      <Field Name="locomotionAnimator" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Follower">
+    <Position X="0.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAQAAAEA=</HashCode>
+      <FileName>Assets\Systems\Locomotion\Scripts\Follower.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityEngine.CharacterController" Collapsed="true">
+    <Position X="2.5" Y="1.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="UnityEngine.Animator" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
