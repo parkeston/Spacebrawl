@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Rigidbody))]
 public class Melee : MonoBehaviour
 {
     [Header("Look direction settings")]
@@ -28,6 +29,8 @@ public class Melee : MonoBehaviour
 
     private float currentTargetLerpFactor;
     private float currentTiltLerpFactor;
+
+    private Rigidbody rigidbody;
     
     public Collider Collider { get; private set; }
     public Transform Target { get; set; }
@@ -35,7 +38,9 @@ public class Melee : MonoBehaviour
     private void Awake()
     {
         Collider = GetComponent<Collider>();
-        startRotation = transform.rotation;
+        rigidbody = GetComponent<Rigidbody>();
+        
+        startRotation = rigidbody.rotation;
 
         currentTargetLerpFactor = targetLerpFactor;
         currentTiltLerpFactor = tiltLerpFactor;
@@ -48,10 +53,10 @@ public class Melee : MonoBehaviour
     {
         startRotation = Quaternion.Lerp(startRotation,Quaternion.LookRotation(getLookForwardVector(),getLookUpVector()),currentTargetLerpFactor );
         Vector3 targetPosition = Target.position + startRotation * Vector3.forward * (offsetDirection * targetOffset); //remember
-        transform.position = targetPosition;
+        rigidbody.position = targetPosition;
 
         desiredRotation = startRotation* Quaternion.Euler(tiltVector*maxTiltAngle);
-        transform.rotation = Quaternion.Lerp(transform.rotation,desiredRotation,currentTiltLerpFactor);
+        rigidbody.rotation = Quaternion.Lerp(transform.rotation,desiredRotation,currentTiltLerpFactor);
     }
 
     public void Sync(bool value)

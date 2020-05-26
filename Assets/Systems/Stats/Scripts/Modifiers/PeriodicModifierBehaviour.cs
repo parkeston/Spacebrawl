@@ -41,4 +41,10 @@ public class PeriodicModifierBehaviour : ModifierBehaviour
             yield return new WaitForSeconds(periodTime);
         }
     }
+
+    protected override string GetEffectDescription(float statAffectValue, string modificationType)
+    {
+        return $"{statAffectValue}{modificationType} every {periodTime}s for {totalTime}s.";
+    }
+    
 }

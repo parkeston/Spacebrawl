@@ -8,4 +8,9 @@ public class InstantModifierBehaviour : ModifierBehaviour
     {
        stat.ModifyStatValue(alterValue);
     }
+
+    protected override string GetEffectDescription(float statAffectValue, string modificationType)
+    {
+        return $"{statAffectValue}{modificationType} on hit";
+    }
 }

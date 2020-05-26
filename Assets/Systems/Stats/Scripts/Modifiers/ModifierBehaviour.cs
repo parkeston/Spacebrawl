@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -37,4 +39,23 @@ public abstract class ModifierBehaviour : TriggerEventCallback
     }
 
     protected abstract void ApplyEffectTo(IStat stat, float alterValue);
+
+    private  string GenerateModifierDescription()
+    {
+        StringBuilder stringBuilder = new StringBuilder(100);
+        stringBuilder.Append(statAlterAmount > 0 ? "increases target's " : "decreases target's ");
+        stringBuilder.Append(statToAffect.name);
+        stringBuilder.Append(" by ");
+        stringBuilder.Append(GetEffectDescription(Mathf.Abs(statAlterAmount),modifierCalculator.GetModificationType()));
+
+        return stringBuilder.ToString();
+    }
+
+    protected abstract string GetEffectDescription(float statAffectValue, string modifcationType);
+
+    [ContextMenu("Copy Description")]
+    private void CopyDescription()
+    {
+        EditorGUIUtility.systemCopyBuffer = GenerateModifierDescription();
+    }
 }

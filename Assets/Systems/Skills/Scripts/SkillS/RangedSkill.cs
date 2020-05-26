@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class RangedSkill : Skill
 {
+    [Header("Projectile launch settings")]
     [SerializeField] private float projectileFlightTime;
     [SerializeField] private float projectileIdleTime;
     [SerializeField] private float maxCastDistance;
-
     [SerializeField] private Projectile projectilePrefab;  //not only projectiles, what about melee?
+    
+    [Header("Casters")]
     [SerializeField] private Caster caster; //multiple caster helpers?
     [SerializeField] private Caster casterHelper; //multiple caster helpers?
 
@@ -77,5 +79,10 @@ public class RangedSkill : Skill
     {
         yield return new WaitForSeconds(time);
         projectile.gameObject.SetActive(false);
+    }
+
+    public override string GetDescriptionIntro()
+    {
+        return $"Launches {projectilePrefab.name} which ";
     }
 }

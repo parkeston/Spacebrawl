@@ -95,10 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a5e0419b7889644949e7cdb370d40b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: 1
-  description: 1
   castTime: 0.18
   cooldownTime: 0
+  energyCost: 0
   prepareTime: 0.1
   maxComboAttacks: 1
   weaponPoint: {fileID: 7505681907616149816}
@@ -116,6 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e0eb62a650dcd4faf4bec2240bfe6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillName: Sword slash
+  description: decreases target's Health by 10 on hit
   uiSkillPrefab: {fileID: -4685718301482447670, guid: 47bfa5f6c445ea949ba2dc3bbbcaa7af,
     type: 3}
   canvasPrefab: {fileID: 6837490497386002402, guid: 554cc5beb54103e4aa6e73444fd30119,

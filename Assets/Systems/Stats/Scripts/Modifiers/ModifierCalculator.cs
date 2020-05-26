@@ -15,17 +15,27 @@ public class ModifierCalculator : ScriptableObject
             return alterAmount;
          case ModifierType.RelativePercentValues:
             return statValue * (alterAmount / 100f);
-         case ModifierType.AbsolutePercentValues:
-            return statValue * ((100-alterAmount )/ 100f);
          default:
             return alterAmount;
+      }
+   }
+
+   public string GetModificationType()
+   {
+      switch (modifierType)
+      {
+         case ModifierType.SimpleAddition:
+            return "";
+         case ModifierType.RelativePercentValues:
+            return "%";
+         default:
+            return "";
       }
    }
    
    private enum ModifierType
    {
       SimpleAddition,
-      RelativePercentValues,
-      AbsolutePercentValues
+      RelativePercentValues
    }
 }

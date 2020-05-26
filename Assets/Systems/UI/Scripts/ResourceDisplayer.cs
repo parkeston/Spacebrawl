@@ -31,4 +31,16 @@ public class ResourceDisplayer : MonoBehaviour
       Vector3 screenPosition = camera.WorldToScreenPoint(transform.position + displayPositionOffset);
       uiResource.UpdatePosition(screenPosition);
    }
+
+   private void OnEnable()
+   {
+      if(uiResource)
+         uiResource.gameObject.SetActive(true);
+   }
+
+   private void OnDisable()
+   {
+      if(uiResource)
+         uiResource.gameObject.SetActive(false);
+   }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class MeleeSkill : Skill
 {
+   [Header("Melee settings")]
    [SerializeField] private float prepareTime;
    [SerializeField] private int maxComboAttacks;
    [SerializeField] private GameObject weaponPoint;
@@ -81,5 +82,18 @@ public class MeleeSkill : Skill
       
       yield return  new WaitForSeconds(castTime);
       IsCastCompleted = true;
+   }
+
+   public override string GetTimingsInfo() => $"Cast: {prepareTime}s\nCooldown: {cooldownTime}s";
+
+   private void OnDisable()
+   {
+      if(melee)
+         melee.gameObject.SetActive(false);
+   }
+
+   public override string GetDescriptionIntro()
+   {
+      return $"Melee attack which ";
    }
 }

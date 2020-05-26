@@ -40,6 +40,7 @@ public class Stat: MonoBehaviour, IStat, IConsumable
             return false;
 
         value -= consumeAmount;
+        OnValueChanged?.Invoke(value,maxValue);
         return true;
     }
     

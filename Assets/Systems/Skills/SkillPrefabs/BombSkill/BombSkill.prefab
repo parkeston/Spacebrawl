@@ -46,10 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: febb63f7925137148b8dcf235cbb4ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: 1
-  description: 1
   castTime: 0.3
   cooldownTime: 5
+  energyCost: 1
   projectileFlightTime: 0.5
   projectileIdleTime: 0
   maxCastDistance: 5
@@ -69,6 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e0eb62a650dcd4faf4bec2240bfe6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillName: Fury bomb
+  description: decreases target's Health by 20 on hit
   uiSkillPrefab: {fileID: -4685718301482447670, guid: 47bfa5f6c445ea949ba2dc3bbbcaa7af,
     type: 3}
   canvasPrefab: {fileID: 6837490497386002402, guid: 554cc5beb54103e4aa6e73444fd30119,

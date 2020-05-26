@@ -6,6 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(Skill))]
 public class SkillDisplayer : MonoBehaviour
 {
+    [SerializeField] private string skillName;
+    [TextArea] [SerializeField] private string description;
+    
     [SerializeField] private UISkill uiSkillPrefab;
     [SerializeField] private SkillUICanvas canvasPrefab;
 
@@ -22,5 +25,13 @@ public class SkillDisplayer : MonoBehaviour
         uiSkill = Instantiate(uiSkillPrefab, canvas.SkillPanel.transform, false);
         skill = GetComponent<Skill>();
         skill.OnCoolDown += uiSkill.StartCooldownTimer;
+        
+        uiSkill.DisplayEnergyCost(skill.EnergyCost>0);
+        uiSkill.FillDescription(skillName,skill.GetDescriptionIntro()+description,skill.GetTimingsInfo());
+    }
+
+    public void UpdateEnergyCostVisuals(float hasCost)
+    {
+        uiSkill.UpdateEnergyCostFill(skill.EnergyCost,hasCost);
     }
 }
