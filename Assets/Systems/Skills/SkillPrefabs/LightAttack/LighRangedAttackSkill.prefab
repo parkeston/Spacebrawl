@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castTime: 0.1
   cooldownTime: 0.3
+  energyCost: 0
   projectileFlightTime: 0.5
   projectileIdleTime: 0
   maxCastDistance: 7
@@ -66,6 +67,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e0eb62a650dcd4faf4bec2240bfe6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillIcon: {fileID: 21300000, guid: 665c0c63b21dfd642b93c94ba35756c8, type: 3}
+  skillIconColor: {r: 0, g: 0, b: 0, a: 1}
   skillName: Fusion bolt
   description: decreases target's Health by 2,5/5/7,5/10 per hit
   uiSkillPrefab: {fileID: -4685718301482447670, guid: 47bfa5f6c445ea949ba2dc3bbbcaa7af,

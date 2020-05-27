@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -5925042626706617687}
   - component: {fileID: -417847767187401765}
   - component: {fileID: 4603901217561413992}
-  - component: {fileID: 2731451350650065087}
+  - component: {fileID: 6733929125670730183}
   m_Layer: 12
   m_Name: BombProjectile
   m_TagString: Untagged
@@ -138,9 +138,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: 0
+  parentToTrigger: 0
   spawnPrefab: {fileID: 8332103903759677505, guid: 8a00eab1394dce5439dfcae8c760fdcf,
     type: 3}
---- !u!114 &2731451350650065087
+--- !u!114 &6733929125670730183
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,7 +150,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 8332103903759677505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a33e4c490d951b0409e76e4b1e091b2a, type: 3}
+  m_Script: {fileID: 11500000, guid: a76862471e8694548b14986714d2d9e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: 0
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8332103903759677505}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

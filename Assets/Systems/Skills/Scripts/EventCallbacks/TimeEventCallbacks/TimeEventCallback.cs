@@ -6,22 +6,29 @@ using UnityEngine;
 
 public abstract class TimeEventCallback : MonoBehaviour
 {
+    [SerializeField] private bool startCountdownAtObjectActivation = true;
     [SerializeField] private float time=0.5f;
 
     private Coroutine callbackRoutine;
     
     private void OnEnable()
     {
-        callbackRoutine = StartCoroutine(CallbackRoutine());
+        if(startCountdownAtObjectActivation)
+           StarCountDown();
     }
 
     private void OnDisable()
     {
         if (callbackRoutine != null)
-        {
             StopCoroutine(callbackRoutine);
-            //Callback()?
-        }
+    }
+
+    public void StarCountDown()
+    {
+        if(callbackRoutine!=null)
+            StopCoroutine(callbackRoutine);
+        
+        callbackRoutine = StartCoroutine(CallbackRoutine());
     }
 
     private IEnumerator CallbackRoutine()

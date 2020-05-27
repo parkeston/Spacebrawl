@@ -10,6 +10,7 @@ public class UISkill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Basic visuals")]
     [SerializeField] private Image skillBG;
+    [SerializeField] private Image skillIcon;
     [SerializeField] private float cooldownTimerPeriod;
     [SerializeField] private TMP_Text cooldownText;
 
@@ -23,6 +24,13 @@ public class UISkill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private GameObject energyCostBG;
     [SerializeField] private Image energyCostFill;
 
+
+    public void SetIcon(Sprite icon, Color color)
+    {
+        skillIcon.sprite = icon;
+        skillIcon.color = color;
+    }
+    
     public void UpdateEnergyCostFill(float skillCost, float hasCost)
     {
         energyCostFill.fillAmount = hasCost / skillCost;

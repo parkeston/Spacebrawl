@@ -30,16 +30,15 @@ public class MeleeSkill : Skill
       weaponPoint.transform.localPosition = Vector3.zero;
    }
 
-   private void Awake()
+   private void Start()
    {
       animator = GetComponent<Animator>();
       
-      melee = Instantiate(meleePrefab);
+      melee = Instantiate(meleePrefab,ArsenalPoint);
       melee.Target = weaponPoint.transform;
       melee.Collider.enabled = false;
       
-      var ownerCollider = transform.root.GetComponent<Collider>(); //todo: fix hardcode
-      Physics.IgnoreCollision(ownerCollider,melee.Collider);
+      Physics.IgnoreCollision(OwnerCollider,melee.Collider);
    }
 
    public void OnAttackStarted()
@@ -85,12 +84,6 @@ public class MeleeSkill : Skill
    }
 
    public override string GetTimingsInfo() => $"Cast: {prepareTime}s\nCooldown: {cooldownTime}s";
-
-   private void OnDisable()
-   {
-      if(melee)
-         melee.gameObject.SetActive(false);
-   }
 
    public override string GetDescriptionIntro()
    {

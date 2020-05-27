@@ -12,6 +12,9 @@ public abstract class Skill : MonoBehaviour
    [SerializeField] protected float cooldownTime;
    [SerializeField] private float energyCost;
 
+   public Transform ArsenalPoint { get; set; }
+   public Collider OwnerCollider { get; set; }
+
    public float EnergyCost => energyCost;
    public bool IsCastCompleted { get; protected set; } = true;
    public abstract void Use(Transform origin);

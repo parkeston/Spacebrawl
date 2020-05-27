@@ -22,15 +22,14 @@ public class RangedSkill : Skill
     
     public override event Action<float> OnCoolDown;
 
-    private void Awake()
+    private void Start()
     {
         projectileLifetime = projectileFlightTime + projectileIdleTime;
         
-        var ownerCollider = transform.root.GetComponent<Collider>(); //todo: fix hardcode
-        projectilePool = new GameObjectPool<Projectile>((int)((castTime+projectileLifetime)/cooldownTime)+1,projectilePrefab,
+        projectilePool = new GameObjectPool<Projectile>((int)((castTime+projectileLifetime)/cooldownTime)+1,projectilePrefab, ArsenalPoint,
             (projectile) =>
             {
-                Physics.IgnoreCollision(ownerCollider,projectile.GetComponent<Collider>()); //todo: fix hardcode
+                Physics.IgnoreCollision(OwnerCollider,projectile.GetComponent<Collider>()); //todo: fix hardcode
             });
     }
     

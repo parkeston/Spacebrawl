@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8332103903759677532}
   - component: {fileID: 8332103903759677535}
   - component: {fileID: 522702312859591891}
-  - component: {fileID: 6422890159133676429}
   - component: {fileID: -2724058675157061458}
+  - component: {fileID: 3614250586444087875}
   m_Layer: 0
   m_Name: BombModifier
   m_TagString: Untagged
@@ -113,19 +113,6 @@ MonoBehaviour:
   modifierCalculator: {fileID: 11400000, guid: d422a7921f218354cb2db17562963f94, type: 2}
   statAlterAmount: -20
   disableOnModify: 0
---- !u!114 &6422890159133676429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8332103903759677505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bde407f0cbf5e442be88bdb7297bcdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0.5
 --- !u!54 &-2724058675157061458
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -142,3 +129,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3614250586444087875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8332103903759677505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae11f8f8d244b204d946bd8d9153dc51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0.5
+  onTime:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8332103903759677505}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

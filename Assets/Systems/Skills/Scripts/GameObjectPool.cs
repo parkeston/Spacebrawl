@@ -9,9 +9,11 @@ public class GameObjectPool<T> where T: MonoBehaviour
     private readonly T[] pool;
     private GameObject parentPoolObject;
 
-    public GameObjectPool(int poolSize, T prefabToPool, Action<T> OnCreated = null)
+    public GameObjectPool(int poolSize, T prefabToPool, Transform arsenal, Action<T> OnCreated = null)
     {
         parentPoolObject = new GameObject(prefabToPool.name+"Pool");
+        parentPoolObject.transform.SetParent(arsenal);
+        
         pool = new T[poolSize];
         for (int i = 0; i < poolSize; i++)
         {

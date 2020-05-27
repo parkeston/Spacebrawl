@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Skill))]
 public class SkillDisplayer : MonoBehaviour
 {
+    [SerializeField] private Sprite skillIcon;
+    [SerializeField] private Color skillIconColor = Color.white;
     [SerializeField] private string skillName;
     [TextArea] [SerializeField] private string description;
     
@@ -26,6 +28,7 @@ public class SkillDisplayer : MonoBehaviour
         skill = GetComponent<Skill>();
         skill.OnCoolDown += uiSkill.StartCooldownTimer;
         
+        uiSkill.SetIcon(skillIcon,skillIconColor);
         uiSkill.DisplayEnergyCost(skill.EnergyCost>0);
         uiSkill.FillDescription(skillName,skill.GetDescriptionIntro()+description,skill.GetTimingsInfo());
     }

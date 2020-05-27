@@ -284,6 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillBG: {fileID: 595953546044531120}
+  skillIcon: {fileID: 7230971095772603969}
   cooldownTimerPeriod: 0.1
   cooldownText: {fileID: 595953545380858693}
   descriptionBox: {fileID: 2844342841276893692}
