@@ -11,6 +11,7 @@ public class MeleeSkill : Skill
    [SerializeField] private int maxComboAttacks;
    [SerializeField] private GameObject weaponPoint;
    [SerializeField] private Melee meleePrefab;
+   [SerializeField] private GameObject vfxObject;
 
    private Animator animator;
    private Melee melee;
@@ -45,6 +46,7 @@ public class MeleeSkill : Skill
    {
       melee.Collider.enabled = true;
       melee.Sync(true);
+      vfxObject.SetActive(true);
 
    }
 
@@ -52,11 +54,12 @@ public class MeleeSkill : Skill
    {
       melee.Collider.enabled = false;
       melee.Sync(false);
+      vfxObject.SetActive(false);
    }
    
-   public override void Use(Transform origin)
+   public override void Use(Transform origin, Stat energyStat)
    {
-      if (timeToCooldown < Time.time)
+      if (timeToCooldown < Time.time && energyStat.Consume(EnergyCost))
       {
          timeToCooldown = Time.time + cooldownTime+prepareTime;
          

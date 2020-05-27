@@ -7,21 +7,63 @@ using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
-public abstract class ModifierBehaviour : TriggerEventCallback
+public abstract class ModifierBehaviour: MonoBehaviour
 {
+    [SerializeField] private ModifierTrigger trigger;
+
     [Header("Modifier effect")]
     [SerializeField] private StatType statToAffect;
     [SerializeField] private ModifierCalculator modifierCalculator;
     [SerializeField] private float statAlterAmount;
+    [SerializeField] private float restTime;
     [SerializeField] private bool disableOnModify;
 
     //if player is character controller then only trigger events are caught (can use 2 separate colliders for trigger & physics)
 
-    protected override void Callback(GameObject other)
-    {
-        Modify(other.gameObject);
-    }
+    private float timeToRest;
+    private Collider collider;
 
+    private List<GameObject> targetObjects;
+    
+    private void Awake()
+    {
+        targetObjects = new List<GameObject>();
+        collider = GetComponent<Collider>();
+        collider.isTrigger = true;
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (trigger == ModifierTrigger.TriggerEnter)
+        {
+            Modify(other.gameObject);
+        }
+        
+        if(trigger==ModifierTrigger.TriggerStay)
+            targetObjects.Add(other.gameObject);
+    }
+    
+    private void OnTriggerStay(Collider other)
+    {
+        if (trigger == ModifierTrigger.TriggerStay && timeToRest < Time.time)
+        {
+            timeToRest = Time.time + restTime;
+            foreach (var targetObject in targetObjects)
+            {
+                Modify(targetObject);
+            }
+        }
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if (trigger == ModifierTrigger.TriggerExit) 
+            Modify(other.gameObject);
+
+        if (trigger == ModifierTrigger.TriggerStay)
+            targetObjects.Remove(other.gameObject);
+    }
+    
     private void Modify(GameObject targetObject)
     {
         var targetObjectStats = targetObject.GetComponents<IStat>();

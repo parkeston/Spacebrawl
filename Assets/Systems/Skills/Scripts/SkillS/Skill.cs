@@ -17,7 +17,7 @@ public abstract class Skill : MonoBehaviour
 
    public float EnergyCost => energyCost;
    public bool IsCastCompleted { get; protected set; } = true;
-   public abstract void Use(Transform origin);
+   public abstract void Use(Transform origin, Stat energyStat);
    public abstract event Action<float> OnCoolDown;
    
    public abstract string GetDescriptionIntro() ;

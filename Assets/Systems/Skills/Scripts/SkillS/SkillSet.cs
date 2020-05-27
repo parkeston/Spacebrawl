@@ -49,9 +49,9 @@ public class SkillSet : MonoBehaviour
     private void Update()
     {
         int skillNumber = inputReader.GetCombatInput();
-        if (skillNumber > 0 && previousSkill.IsCastCompleted && energyStat.Consume(skills[skillNumber - 1].EnergyCost))
+        if (skillNumber > 0 && previousSkill.IsCastCompleted)
         {
-            skills[skillNumber - 1].Use(skillsMountPoint);
+            skills[skillNumber - 1].Use(skillsMountPoint, energyStat);
             previousSkill = skills[skillNumber - 1];
         }
     }

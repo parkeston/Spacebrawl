@@ -33,9 +33,9 @@ public class RangedSkill : Skill
             });
     }
     
-    public override void Use(Transform origin)
+    public override void Use(Transform origin, Stat energyStat)
     {
-        if (timeToCooldown < Time.time)
+        if (timeToCooldown < Time.time && energyStat.Consume(EnergyCost))
         {
             timeToCooldown = Time.time + cooldownTime+castTime;
             
