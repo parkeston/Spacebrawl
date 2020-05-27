@@ -28,9 +28,15 @@ public class SkillDisplayer : MonoBehaviour
         skill = GetComponent<Skill>();
         skill.OnCoolDown += uiSkill.StartCooldownTimer;
         
-        uiSkill.SetIcon(skillIcon,skillIconColor);
         uiSkill.DisplayEnergyCost(skill.EnergyCost>0);
-        uiSkill.FillDescription(skillName,skill.GetDescriptionIntro()+description,skill.GetTimingsInfo());
+        FillUIElement(uiSkill);
+    }
+
+    public void FillUIElement(IAmUISkill amUiSkill)
+    {
+        var skill = GetComponent<Skill>();
+        amUiSkill.SetIcon(skillIcon,skillIconColor);
+        amUiSkill.FillDescription(skillName,skill.GetDescriptionIntro()+description,skill.GetTimingsInfo());
     }
 
     public void UpdateEnergyCostVisuals(float hasCost)

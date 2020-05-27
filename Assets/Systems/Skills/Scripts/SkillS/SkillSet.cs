@@ -17,6 +17,8 @@ public class SkillSet : MonoBehaviour
     private Skill[] skills;
     private List<SkillDisplayer> skillDisplayers;
     private Skill previousSkill;
+
+    public Skill[] Skills => skillsPrefabs;
     
     private void Awake()
     {
