@@ -328,7 +328,7 @@ Transform:
   m_LocalScale: {x: 0.20885, y: 0.20885, z: 0.20885}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &281291821
 GameObject:
@@ -454,6 +454,7 @@ GameObject:
   - component: {fileID: 380810736}
   - component: {fileID: 380810738}
   - component: {fileID: 380810739}
+  - component: {fileID: 380810740}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -657,6 +658,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 380810740}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 380810728}
         m_MethodName: SetActive
         m_Mode: 6
@@ -668,6 +680,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &380810740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380810728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9cad48c47525244b7346a1558fce75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alignRotation: 1
+  spawnPrefab: {fileID: 2550298127624905154, guid: 0b8716c5ecaae7347a6df1f6273e2b5c,
+    type: 3}
+  parentTo: {fileID: 160023889}
 --- !u!1001 &590729435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -713,7 +741,7 @@ PrefabInstance:
     - target: {fileID: 3885657570096860561, guid: fe87eb9284f02ae468f482a34774e48f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3885657570096860561, guid: fe87eb9284f02ae468f482a34774e48f,
         type: 3}
@@ -1229,6 +1257,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh
       objectReference: {fileID: 0}
+    - target: {fileID: 1127413562660826936, guid: 8caeb1baea7a742ed952d821d678fcee,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 12cf2ae613b664c408c02b6909b413cc, type: 2}
+    - target: {fileID: 2135624897131870642, guid: 8caeb1baea7a742ed952d821d678fcee,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7d2cc2b71192534d9257e5c01d0fac9, type: 2}
     m_RemovedComponents:
     - {fileID: -6057140222963153312, guid: 8caeb1baea7a742ed952d821d678fcee, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8caeb1baea7a742ed952d821d678fcee, type: 3}
