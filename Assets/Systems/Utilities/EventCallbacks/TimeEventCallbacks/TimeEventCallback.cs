@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Packages.Rider.Editor.UnitTesting;
 using UnityEngine;
 
 public abstract class TimeEventCallback : MonoBehaviour

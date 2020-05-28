@@ -18,7 +18,7 @@ public class RangedSkill : Skill
     private float projectileLifetime;
     private float timeToCooldown;
 
-    private GameObjectPool<Projectile> projectilePool;
+    private NetworkObjectPool projectilePool;
     
     public override event Action<float> OnCoolDown;
 
@@ -26,7 +26,7 @@ public class RangedSkill : Skill
     {
         projectileLifetime = projectileFlightTime + projectileIdleTime;
         
-        projectilePool = new GameObjectPool<Projectile>((int)((castTime+projectileLifetime)/cooldownTime)+1,projectilePrefab, ArsenalPoint,
+        projectilePool = new NetworkObjectPool((int)((castTime+projectileLifetime)/cooldownTime)+1,projectilePrefab.gameObject, ArsenalPoint,
             (projectile) =>
             {
                 Physics.IgnoreCollision(OwnerCollider,projectile.GetComponent<Collider>()); //todo: fix hardcode
@@ -64,9 +64,11 @@ public class RangedSkill : Skill
         OnCoolDown?.Invoke(cooldownTime);
 
         var projectile = projectilePool.GetPoolObject();
-        projectile.transform.position = origin.position;
-        projectile.gameObject.SetActive(true);//???
-        caster.Cast(origin.position, projectile,projectileFlightTime);
+        
+        projectile.Activate(true,origin.position,Quaternion.identity);
+        //projectile.transform.position = origin.position;
+        //projectile.gameObject.SetActive(true);//???
+        caster.Cast(origin.position, projectile.GetComponent<Projectile>(),projectileFlightTime);
         
         caster.gameObject.SetActive(false);
         casterHelper?.gameObject.SetActive(false);
@@ -74,10 +76,10 @@ public class RangedSkill : Skill
         projectile.StartCoroutine(DisableAfter(projectile,projectileLifetime));
     }
 
-    private IEnumerator DisableAfter(Projectile projectile, float time)
+    private IEnumerator DisableAfter(NetworkGameObject projectile, float time)
     {
         yield return new WaitForSeconds(time);
-        projectile.gameObject.SetActive(false);
+        projectile.Activate(false,transform.position,Quaternion.identity);
     }
 
     public override string GetDescriptionIntro()

@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 1752999864}
   - component: {fileID: 1752999865}
   - component: {fileID: 1752999868}
+  - component: {fileID: 285550002}
+  - component: {fileID: 9064689232601185700}
   m_Layer: 13
   m_Name: Health Cell
   m_TagString: Untagged
@@ -177,9 +179,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: 0
-  parentToTrigger: 1
-  spawnPrefab: {fileID: 3449210216475301928, guid: f14623be62f094446952b5c2a90c21e7,
+  parentToTrigger: 0
+  spawnPrefab: {fileID: 2928680608302382109, guid: f14623be62f094446952b5c2a90c21e7,
     type: 3}
+--- !u!114 &285550002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7814302626992252923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &9064689232601185700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7814302626992252923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed06841b680ba7c4a82e58a5bfe2dddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableColliderIfNotLocal: 1
+  componentsToDisableIfNotLocal: []
 --- !u!1001 &7814302626437737742
 PrefabInstance:
   m_ObjectHideFlags: 0

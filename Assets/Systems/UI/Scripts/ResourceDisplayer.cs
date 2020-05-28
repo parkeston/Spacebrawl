@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class ResourceDisplayer : MonoBehaviour
@@ -14,6 +15,9 @@ public class ResourceDisplayer : MonoBehaviour
    private UIResource uiResource;
 
    private new Camera camera;
+
+
+   public Stat DisplayedStat => stat;
    
    private void Awake()
    {
@@ -22,8 +26,11 @@ public class ResourceDisplayer : MonoBehaviour
 
       uiResource = Instantiate(uiResourcePrefab, canvas.transform, false);
       camera = Camera.main;
-
-      stat.OnValueChanged += uiResource.UpdateResourceValue;
+   }
+   
+   public void UpdateResourceDisplay(float value, float maxValue)
+   {
+         uiResource.UpdateResourceValue(value, maxValue);
    }
 
    private void FixedUpdate()

@@ -15,7 +15,7 @@ public class StatMonitor : MonoBehaviour
         statToMonitor.OnValueChanged += MonitorValue;
     }
 
-    private void MonitorValue(float value, float maxValue)
+    private void MonitorValue(Stat modifiedStat, float value, float maxValue)
     {
         if(value<=targetStatValue)
             onTargetValueReached?.Invoke();

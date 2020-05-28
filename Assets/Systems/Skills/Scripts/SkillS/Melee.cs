@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -31,13 +32,17 @@ public class Melee : MonoBehaviour
     private float currentTiltLerpFactor;
 
     private Rigidbody rigidbody;
-    
-    public Collider Collider { get; private set; }
+
+    public Collider Collider { get; set; }
     public Transform Target { get; set; }
 
     private void Awake()
     {
         Collider = GetComponent<Collider>();
+    }
+
+    private void Start()
+    {
         rigidbody = GetComponent<Rigidbody>();
         
         startRotation = rigidbody.rotation;
@@ -48,7 +53,7 @@ public class Melee : MonoBehaviour
         getLookForwardVector = SetUpLookVectors(lookForwardVectorIsTargets);
         getLookUpVector = SetUpLookVectors(lookUpVectorIsTargets);
     }
-    
+
     private void FixedUpdate()
     {
         startRotation = Quaternion.Lerp(startRotation,Quaternion.LookRotation(getLookForwardVector(),getLookUpVector()),currentTargetLerpFactor );

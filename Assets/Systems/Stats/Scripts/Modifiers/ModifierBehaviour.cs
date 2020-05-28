@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -41,6 +43,8 @@ public abstract class ModifierBehaviour: MonoBehaviour
         
         if(trigger==ModifierTrigger.TriggerStay)
             targetObjects.Add(other.gameObject);
+        
+        Debug.Log("Count: "+targetObjects.Count);
     }
     
     private void OnTriggerStay(Collider other)
@@ -62,6 +66,8 @@ public abstract class ModifierBehaviour: MonoBehaviour
 
         if (trigger == ModifierTrigger.TriggerStay)
             targetObjects.Remove(other.gameObject);
+        
+        Debug.Log("Exit: "+targetObjects.Count);
     }
     
     private void Modify(GameObject targetObject)
@@ -95,9 +101,11 @@ public abstract class ModifierBehaviour: MonoBehaviour
 
     protected abstract string GetEffectDescription(float statAffectValue, string modifcationType);
 
+#if UNITY_EDITOR
     [ContextMenu("Copy Description")]
     private void CopyDescription()
     {
         EditorGUIUtility.systemCopyBuffer = GenerateModifierDescription();
     }
+#endif
 }

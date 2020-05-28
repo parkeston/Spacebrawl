@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class CameraTarget : MonoBehaviour
 {
-    private Vector3 offset;
+    [SerializeField] private Vector3 positionOffset;
+    [SerializeField] private Vector3 rotation;
+    
     private new Camera camera;
 
-    private void Awake()
+    private void Start()
     {
         camera = Camera.main;
-        offset = camera.transform.position - transform.position;
+        camera.transform.rotation = Quaternion.Euler(rotation);
     }
 
     private void LateUpdate()
     {
-        camera.transform.position = transform.position + offset;
+        camera.transform.position = transform.position + positionOffset;
     }
 }

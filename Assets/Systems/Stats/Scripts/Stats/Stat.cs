@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -12,17 +13,20 @@ public class Stat: MonoBehaviour, IStat, IConsumable
     [SerializeField] private float maxValue;
     [SerializeField] private float startingValue;
     
-    public event Action<float, float> OnValueChanged;
+    public event Action<Stat , float, float> OnValueChanged;
 
     private float value;
     
     public StatType StatType => statType;
     public float StatValue => value;
+    
 
     private void Start()
     {
         value = startingValue;
-        OnValueChanged?.Invoke(value,maxValue);
+        OnValueChanged?.Invoke(this,value,maxValue);
+        print($"Init {statType} of {name} ");
+
     }
 
     public void ModifyStatValue(float alterAmount)
@@ -31,16 +35,28 @@ public class Stat: MonoBehaviour, IStat, IConsumable
         if (value > maxValue)
             value = maxValue;
         
-        OnValueChanged?.Invoke(value,maxValue);
+        OnValueChanged?.Invoke(this,value,maxValue);
+        print($"Modified {statType} of {name}");
+
     }
-    
+
+    public void SyncWithLocalValue(float value)
+    {
+        this.value = value;
+    }
+
     public bool Consume(float consumeAmount)
     {
         if (consumeAmount > value)
             return false;
 
+        if (consumeAmount <= 0)
+            return true;
+        
         value -= consumeAmount;
-        OnValueChanged?.Invoke(value,maxValue);
+        OnValueChanged?.Invoke(this,value,maxValue);
+        print($"Consume {statType} of {name}");
+
         return true;
     }
     

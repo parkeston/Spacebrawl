@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -15,7 +16,7 @@ public class CharacterMovement : MonoBehaviour
 
     private Vector3 velocity;
     private Quaternion rotation;
-
+    
     //todo: split to movable and rotatable? (so input too?)
     
     private void Awake()

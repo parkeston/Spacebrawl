@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -57,6 +58,7 @@ public class HeroPickScreen : MonoBehaviour
         
         currentRoster.MarkCharacterAsSelected(selectedCharacter);
         selectedCharacter = null;
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
+        //LoadArena();
     }
 }

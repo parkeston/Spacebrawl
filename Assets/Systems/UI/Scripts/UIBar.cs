@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,5 +20,6 @@ public class UIBar : UIResource
     {
         fillImage.fillAmount = value / maxValue;
         amountText.text = ((int) value).ToString();
+        print("updating stats visuals");
     }
 }

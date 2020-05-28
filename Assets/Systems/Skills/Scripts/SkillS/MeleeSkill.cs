@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -11,17 +12,20 @@ public class MeleeSkill : Skill
    [SerializeField] private int maxComboAttacks;
    [SerializeField] private GameObject weaponPoint;
    [SerializeField] private Melee meleePrefab;
-   [SerializeField] private GameObject vfxObject;
+   [SerializeField] private NetworkGameObject vfxObjectPrefab;
 
    private Animator animator;
    private Melee melee;
    private float timeToCooldown;
    private int attackCounter;
+   
+   private NetworkGameObject vfxObject;
 
    private static readonly int AttackCounter = Animator.StringToHash("attackCounter");
    private static readonly int Attack = Animator.StringToHash("attack");
    
    public override event Action<float> OnCoolDown;
+
 
    private void Reset()
    {
@@ -34,10 +38,15 @@ public class MeleeSkill : Skill
    private void Start()
    {
       animator = GetComponent<Animator>();
+
+      vfxObject = PhotonNetwork.Instantiate(vfxObjectPrefab.name, Vector3.zero, Quaternion.identity)
+         .GetComponent<NetworkGameObject>();
       
-      melee = Instantiate(meleePrefab,ArsenalPoint);
+      vfxObject.SetParent(transform,Vector3.zero);
+      
+      melee = PhotonNetwork.Instantiate(meleePrefab.name,Vector3.zero, Quaternion.identity).GetComponent<Melee>();
+      melee.transform.SetParent(ArsenalPoint);
       melee.Target = weaponPoint.transform;
-      melee.Collider.enabled = false;
       
       Physics.IgnoreCollision(OwnerCollider,melee.Collider);
    }
@@ -46,15 +55,14 @@ public class MeleeSkill : Skill
    {
       melee.Collider.enabled = true;
       melee.Sync(true);
-      vfxObject.SetActive(true);
-
+      vfxObject.Activate(true,transform.position,transform.rotation);
    }
 
    public void OnAttackEnded()
    {
       melee.Collider.enabled = false;
       melee.Sync(false);
-      vfxObject.SetActive(false);
+      vfxObject.Activate(false,transform.position,transform.rotation);
    }
    
    public override void Use(Transform origin, Stat energyStat)

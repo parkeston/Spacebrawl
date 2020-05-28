@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class SkillSet : MonoBehaviour
@@ -20,7 +21,7 @@ public class SkillSet : MonoBehaviour
 
     public Skill[] Skills => skillsPrefabs;
     
-    private void Awake()
+    private void Start()
     {
         skills = new Skill[skillsPrefabs.Length];
         skillDisplayers = new List<SkillDisplayer>(skillsPrefabs.Length);
@@ -40,7 +41,7 @@ public class SkillSet : MonoBehaviour
         energyStat.OnValueChanged += UpdateSkillDisplayers;
     }
 
-    private void UpdateSkillDisplayers(float value, float maxValue)
+    private void UpdateSkillDisplayers(Stat modifiedStat,float value, float maxValue)
     {
         foreach (var skillDisplayer in skillDisplayers)
         {

@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Super character specialized on hymaliating the enemy and everything
     that moves!
   bio: One ugly motherfucker
-  characterPlayablePrefab: {fileID: 5609065636084029281, guid: ec90847c794037a4b852c995cd3fbf99,
+  characterPlayablePrefab: {fileID: 5609065636084029281, guid: a51459c3a36603449b004fbb737a466a,
     type: 3}
   characterPreviewPrefab: {fileID: 1644156356144118380, guid: f960e490f59d6cc4eb1b71e159b7085e,
     type: 3}

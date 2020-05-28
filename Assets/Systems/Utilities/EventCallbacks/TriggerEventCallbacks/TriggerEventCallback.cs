@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Packages.Rider.Editor.UnitTesting;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
