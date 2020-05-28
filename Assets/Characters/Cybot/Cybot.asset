@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Cybot
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: dd0d14a42016bf242b7f1c5a86de72c8, type: 3}
-  role: Ranged
-  description: Super character specialized on hymaliating the enemy and everything
-    that moves!
-  bio: One ugly motherfucker
+  role: Melee/Ranged
+  description: Hello mom!
+  bio: 'Hello dad!
+
+'
   characterPlayablePrefab: {fileID: 5609065636084029281, guid: a51459c3a36603449b004fbb737a466a,
     type: 3}
   characterPreviewPrefab: {fileID: 1644156356144118380, guid: f960e490f59d6cc4eb1b71e159b7085e,

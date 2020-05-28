@@ -53,12 +53,7 @@ public class HeroPickScreen : MonoBehaviour
 
     private void PlayButtonPressed()
     {
-        Destroy(previewedHero);
-        selectedCell.Deselect();
-        
         currentRoster.MarkCharacterAsSelected(selectedCharacter);
         selectedCharacter = null;
-        //SceneManager.LoadScene(1);
-        //LoadArena();
     }
 }

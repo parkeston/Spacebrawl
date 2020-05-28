@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
@@ -22,6 +23,11 @@ public class Launcher : MonoBehaviourPunCallbacks
         // this makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
         PhotonNetwork.AutomaticallySyncScene = true;
         playButton.onClick.AddListener(()=>PhotonNetwork.JoinRandomRoom());
+    }
+
+    private void Start()
+    {
+        PhotonNetwork.NickName = Guid.NewGuid().ToString();
     }
 
     /// <summary>

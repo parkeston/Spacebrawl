@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alignRotation: 1
-  spawnPrefab: {fileID: 2550298127624905154, guid: 0b8716c5ecaae7347a6df1f6273e2b5c,
+  spawnPrefab: {fileID: 2152802107146431497, guid: 0b8716c5ecaae7347a6df1f6273e2b5c,
     type: 3}
   parentTo: {fileID: 5609065636084029281}
 --- !u!114 &2921400726854990869

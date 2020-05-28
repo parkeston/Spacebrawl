@@ -8,12 +8,14 @@ using Random = UnityEngine.Random;
 public class Matcher : MonoBehaviour
 {
     [SerializeField] private GameObject characterPrefab;
+    [SerializeField] private CharactersRoster charactersRoster;
 
     private void Awake()
     {
+        
         Vector3 spawnPosition = Random.insideUnitSphere * 5;
         spawnPosition.y = 0;
 
-        PhotonNetwork.Instantiate(characterPrefab.name, spawnPosition, Quaternion.identity);
+        PhotonNetwork.Instantiate(charactersRoster.GetCharactersToSpawn()[0].CharacterPlayablePrefab.name, spawnPosition, Quaternion.identity);
     }
 }

@@ -35,10 +35,10 @@ public class NetworkGameObject : MonoBehaviour
 
    private void OnDisable()
    {
-      if (photonView.IsMine)
-      {
+      //if (photonView.IsMine)
+      //{
          Activate(false,transform.position,transform.rotation);
-      }
+      //}
    }
 
    public void SetParent(Transform parent, Vector3 localPosition)

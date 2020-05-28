@@ -43,6 +43,7 @@ public class MeleeSkill : Skill
          .GetComponent<NetworkGameObject>();
       
       vfxObject.SetParent(transform,Vector3.zero);
+      vfxObject.Activate(false,transform.position,Quaternion.identity);
       
       melee = PhotonNetwork.Instantiate(meleePrefab.name,Vector3.zero, Quaternion.identity).GetComponent<Melee>();
       melee.transform.SetParent(ArsenalPoint);

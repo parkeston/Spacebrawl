@@ -39,6 +39,7 @@ public class SkillSet : MonoBehaviour
         previousSkill = skills[0];
 
         energyStat.OnValueChanged += UpdateSkillDisplayers;
+        UpdateSkillDisplayers(energyStat,energyStat.StatValue,4);
     }
 
     private void UpdateSkillDisplayers(Stat modifiedStat,float value, float maxValue)

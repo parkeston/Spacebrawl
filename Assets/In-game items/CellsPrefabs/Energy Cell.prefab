@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3885657570096860590}
   - component: {fileID: 3885657570096860591}
   - component: {fileID: 3885657570096860588}
-  - component: {fileID: 3969542108720473892}
-  - component: {fileID: 3347286712476430672}
+  - component: {fileID: 1304709568322597787}
+  - component: {fileID: -4236176000545128570}
   - component: {fileID: 7741813597180118399}
   - component: {fileID: 590729437}
   - component: {fileID: 2126395144849086441}
@@ -72,13 +72,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9179cfc68986d814cb4e3e63e3b92c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: 0
+  trigger: 3
   statToAffect: {fileID: 11400000, guid: c3f5330be132d87428975aa70435a415, type: 2}
   modifierCalculator: {fileID: 11400000, guid: d422a7921f218354cb2db17562963f94, type: 2}
   statAlterAmount: 1
   restTime: 0
   disableOnModify: 0
---- !u!114 &3969542108720473892
+--- !u!114 &1304709568322597787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,14 +87,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3885657570096860589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 093dbe21e4ef73f49b169c4602a4c7ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b9cad48c47525244b7346a1558fce75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: 0
-  parentToTrigger: 0
+  alignRotation: 0
   spawnPrefab: {fileID: 2572335505237055968, guid: cbdf5cdf3ff276b4491253a03889e0a4,
     type: 3}
---- !u!114 &3347286712476430672
+  parentTo: {fileID: 0}
+--- !u!114 &-4236176000545128570
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,11 +103,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3885657570096860589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a76862471e8694548b14986714d2d9e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 4877cf877d6b3c043a16ec727cbc93a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: 0
-  onTrigger:
+  onModify:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3885657570096860591}
@@ -134,6 +133,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 7741813597180118399}
         m_MethodName: StarCountDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1304709568322597787}
+        m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -216,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed06841b680ba7c4a82e58a5bfe2dddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disableColliderIfNotLocal: 1
+  disableColliderIfNotLocal: 0
   componentsToDisableIfNotLocal: []
 --- !u!1001 &3885657570876037698
 PrefabInstance:

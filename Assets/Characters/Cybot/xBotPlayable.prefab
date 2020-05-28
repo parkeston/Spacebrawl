@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alignRotation: 1
-  spawnPrefab: {fileID: 2550298127624905154, guid: 0b8716c5ecaae7347a6df1f6273e2b5c,
+  spawnPrefab: {fileID: 2152802107146431497, guid: 0b8716c5ecaae7347a6df1f6273e2b5c,
     type: 3}
   parentTo: {fileID: 5609065636084029281}
 --- !u!114 &2921400726854990869
@@ -334,6 +334,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67749cfcfbdbd14aaf7102c9ad7823e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positionOffset: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &5609065636084029281
 GameObject:
   m_ObjectHideFlags: 0

@@ -69,7 +69,18 @@ public abstract class ModifierBehaviour: MonoBehaviour
         
         Debug.Log("Exit: "+targetObjects.Count);
     }
-    
+
+    private void OnDisable()
+    {
+        targetObjects.Clear();
+    }
+
+    public void Use(GameObject targetObject)
+    {
+        if(trigger == ModifierTrigger.Use)
+            Modify(targetObject);
+    }
+
     private void Modify(GameObject targetObject)
     {
         var targetObjectStats = targetObject.GetComponents<IStat>();

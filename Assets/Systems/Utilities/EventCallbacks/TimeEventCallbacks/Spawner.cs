@@ -1,23 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private bool alignRotation;
-    [SerializeField] private GameObject spawnPrefab;
+    [SerializeField] private NetworkGameObject spawnPrefab;
     [SerializeField] private GameObject parentTo;
 
-    private GameObject spawnedObject;
+    private NetworkGameObject spawnedObject;
 
     //todo: use pool?
     private  void Awake()
     {
-        spawnedObject = Instantiate(spawnPrefab);
-        spawnedObject.transform.position = transform.position;
-        spawnedObject.SetActive(false);
+        spawnedObject = PhotonNetwork.Instantiate(spawnPrefab.name,transform.position,spawnPrefab.transform.rotation).GetComponent<NetworkGameObject>();
+        spawnedObject.Activate(false,transform.position,Quaternion.identity);
         if(parentTo!=null)
-            spawnedObject.transform.SetParent(parentTo.transform);
+            spawnedObject.SetParent(parentTo.transform,Vector3.zero);
         
         if(spawnedObject.TryGetComponent(out Collider collider))
             Physics.IgnoreCollision(collider,spawnedObject.GetComponent<Collider>());
@@ -25,9 +25,12 @@ public class Spawner : MonoBehaviour
     
     public void Spawn()
     {
-        spawnedObject.transform.position = transform.position;
+        Quaternion rotation =spawnedObject.transform.rotation;
         if(alignRotation)
-            spawnedObject.transform.rotation = transform.rotation;
-        spawnedObject.SetActive(true);
+           rotation = transform.rotation;
+        
+        spawnedObject.Activate(true,transform.position,rotation);
+        
+        print("spawn");
     }
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
     AppIdRealtime: 7631d823-2de3-437a-835e-27702005c303
     AppIdChat: f89575c7-d494-4fd9-a062-58e208f5f1c7
     AppIdVoice: 
-    AppVersion: 
+    AppVersion: 1.0.0
     UseNameServer: 1
     FixedRegion: 
     Server: 
@@ -24,10 +24,10 @@ MonoBehaviour:
     Protocol: 0
     AuthMode: 0
     EnableLobbyStatistics: 0
-    NetworkLogging: 1
+    NetworkLogging: 5
   DevRegion: ru
   PunLogging: 2
-  EnableSupportLogger: 0
+  EnableSupportLogger: 1
   RunInBackground: 1
   StartInOfflineMode: 0
   RpcList:
@@ -46,6 +46,7 @@ MonoBehaviour:
   - SetParentOnNetwork
   - MoveNetwork
   - TeleportNetwork
+  - Modify
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
