@@ -31,22 +31,14 @@ MonoBehaviour:
   RunInBackground: 1
   StartInOfflineMode: 0
   RpcList:
+  - ActivateOnNetwork
   - ClickRpc
   - DestroyRpc
-  - DestroySpaceship
-  - Fire
-  - RespawnSpaceship
-  - InvokeOnValueChangedEventOnNetwork
-  - IgnoreCollisionWithSelf
-  - IgnoreCollisionOnNetwork
-  - ActivateColliderOnNetwork
-  - InvokeOnValueChangeNetworkEvent
-  - ReflectStatChangesOnNetwork
-  - ActivateOnNetwork
-  - SetParentOnNetwork
-  - MoveNetwork
-  - TeleportNetwork
   - Modify
+  - MoveNetwork
+  - ReflectStatChangesOnNetwork
+  - SetParentOnNetwork
+  - TeleportNetwork
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
