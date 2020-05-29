@@ -51,7 +51,7 @@ MonoBehaviour:
   energyCost: 1
   projectileFlightTime: 0.5
   projectileIdleTime: 0
-  maxCastDistance: 5
+  maxCastDistance: 8
   projectilePrefab: {fileID: -417847767187401765, guid: e99815129661ab841912e21e59977884,
     type: 3}
   caster: {fileID: 3380843170222262019}
