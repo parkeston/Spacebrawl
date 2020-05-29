@@ -16,7 +16,9 @@ public class CharacterMovement : MonoBehaviour
 
     private Vector3 velocity;
     private Quaternion rotation;
-    
+
+    private float velocityY;
+
     //todo: split to movable and rotatable? (so input too?)
     
     private void Awake()
@@ -28,6 +30,14 @@ public class CharacterMovement : MonoBehaviour
     {
         velocity = inputReader.GetMovementDirection() * movementSpeed;
         rotation = inputReader.GetRotation(transform.position);
+        
+        if (!controller.isGrounded)
+        {
+            velocityY -= 9.81f * Time.deltaTime;
+            velocity += Vector3.up * velocityY;
+        }
+        else
+            velocityY = 0;
     }
 
     private void FixedUpdate()
