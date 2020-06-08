@@ -13,14 +13,18 @@ public class HeroPickScreen : MonoBehaviour
     [SerializeField] private HeroInfo heroInfoPanel;
     [SerializeField] private HeroGridCell gridCellPrefab;
     [SerializeField] private Button playButton;
+    [SerializeField] private Button cancelSearchButton;
 
     private HeroGridCell selectedCell;
     private Character selectedCharacter;
     private GameObject previewedHero;
+
+    private bool isSearching;
     
-    private void Awake()
+    private void Start()
     {
         playButton.onClick.AddListener(PlayButtonPressed);
+        cancelSearchButton.onClick.AddListener(CancelButtonPressed);
         FillHeroGrid();
     }
 
@@ -34,16 +38,20 @@ public class HeroPickScreen : MonoBehaviour
             var i1 = i;
             heroGridCell.SetOnClickListener(() =>
             {
+                if(isSearching)
+                    return;
+                
                 if (selectedCell != null)
                 {
                     Destroy(previewedHero);
-                    selectedCell.Deselect();
+                    selectedCell.Select(false);
                     selectedCharacter = null;
                 }
 
                 selectedCharacter = currentRoster[i1];
                 previewedHero = Instantiate(currentRoster[i1].CharacterPreviewPrefab);
                 selectedCell = heroGridCell;
+                selectedCell.Select(true);
                 
                 heroInfoPanel.DisplayHeroData(currentRoster[i1]);
                 playButton.gameObject.SetActive(true);
@@ -54,6 +62,11 @@ public class HeroPickScreen : MonoBehaviour
     private void PlayButtonPressed()
     {
         currentRoster.MarkCharacterAsSelected(selectedCharacter);
-        selectedCharacter = null;
+        isSearching = true;
+    }
+
+    private void CancelButtonPressed()
+    {
+        isSearching = false;
     }
 }

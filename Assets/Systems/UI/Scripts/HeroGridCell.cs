@@ -24,9 +24,9 @@ public class HeroGridCell : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         button = GetComponent<Button>();
     }
 
-    public void Deselect()
+    public void Select(bool value)
     {
-        selectionOutline.SetActive(false);
+        selectionOutline.SetActive(value);
     }
     
     public void SetOnClickListener(UnityAction action)
