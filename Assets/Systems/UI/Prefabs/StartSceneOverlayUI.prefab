@@ -6092,6 +6092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f471def7b85444e4abd18ba77a4a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiresLobby: 0
   networkInitializer: {fileID: 5097019909188587214}
   OnConnecting:
     m_PersistentCalls:
@@ -6299,6 +6300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f471def7b85444e4abd18ba77a4a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiresLobby: 1
   networkInitializer: {fileID: 5097019909188587214}
   OnConnecting:
     m_PersistentCalls:

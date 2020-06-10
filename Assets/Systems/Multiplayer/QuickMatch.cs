@@ -1,4 +1,5 @@
 ﻿
+using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class QuickMatch : MonoBehaviourPunCallbacks
     {
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = maxPlayers;
+        roomOptions.CustomRoomProperties = new Hashtable{{"mode","quick"}};
+        roomOptions.CustomRoomPropertiesForLobby = new[] {"mode"};
         PhotonNetwork.CreateRoom(null, roomOptions);
     }
 
@@ -21,7 +24,8 @@ public class QuickMatch : MonoBehaviourPunCallbacks
 
     public void SearchForQuickMatch()
     {
-        PhotonNetwork.JoinRandomRoom(null, maxPlayers);
+        var filter = new Hashtable{{"mode","quick"}};
+        PhotonNetwork.JoinRandomRoom(filter,maxPlayers);
     }
 
     public void CancelSearch()
@@ -45,7 +49,9 @@ public class QuickMatch : MonoBehaviourPunCallbacks
         {
             Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
         }
+        
         Debug.LogFormat("PhotonNetwork : Loading Level : {0}",arena);
+        PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.LoadLevel(arena);
     }
     

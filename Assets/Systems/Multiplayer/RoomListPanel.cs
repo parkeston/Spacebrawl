@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
@@ -27,7 +28,7 @@ public class RoomListPanel : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        foreach (var roomInfo in roomList)
+        foreach (var roomInfo in roomList.Where(roomInfo => (string) roomInfo.CustomProperties["mode"] != "quick"))
         {
             if (roomInfo.RemovedFromList)
             {
