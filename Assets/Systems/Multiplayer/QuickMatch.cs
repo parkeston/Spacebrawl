@@ -1,6 +1,8 @@
 ﻿
+using System.Linq;
 using ExitGames.Client.Photon;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
 using UnityEngine;
 
@@ -51,19 +53,44 @@ public class QuickMatch : MonoBehaviourPunCallbacks
         }
         
         Debug.LogFormat("PhotonNetwork : Loading Level : {0}",arena);
-        PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.LoadLevel(arena);
     }
-    
+
     public override void OnPlayerEnteredRoom(Player other)
     {
         Debug.LogFormat("OnPlayerEnteredRoom() {0}", other.NickName); // not seen if you're the player connecting
-
         
         if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount==maxPlayers)
         {
             Debug.LogFormat("OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
-            LoadArena(1);
+            
+            AssignTeams();
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+            //LoadArena(1);
         }
+    }
+    
+    private void AssignTeams()
+    {
+        //there are 2 teams in photon teams manager by default with code 1 & 2
+        var players = PhotonNetwork.PlayerList;
+        
+        for (int i = 0; i < maxPlayers; i++)
+        {
+            int teamIndex = i / (maxPlayers / 2);
+            players[i].JoinTeam((byte) (teamIndex + 1));
+        }
+    }
+
+    private int updatedPlayersCount;
+    public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            updatedPlayersCount++;
+            if(updatedPlayersCount==maxPlayers)
+                LoadArena(1);
+        }
+        print($"{targetPlayer.NickName} properties updated!");
     }
 }
