@@ -49,4 +49,10 @@ public class HeroInfo : MonoBehaviour
         skillsInfoList.SetActive(true);
         nameLabel.SetActive(true);
     }
+
+    public void HideHeroData()
+    {
+        skillsInfoList.SetActive(false);
+        nameLabel.SetActive(false);
+    }
 }

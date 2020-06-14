@@ -12,4 +12,5 @@ public class PlayerListItem : MonoBehaviour
     {
         playerName.text = player.NickName;
     }
+    
 }

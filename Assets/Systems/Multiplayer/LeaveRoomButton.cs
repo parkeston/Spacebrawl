@@ -2,11 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
+using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 [RequireComponent(typeof(Button))]
 public class LeaveRoomButton : MonoBehaviourPunCallbacks
@@ -16,7 +19,7 @@ public class LeaveRoomButton : MonoBehaviourPunCallbacks
     {
         GetComponent<Button>().onClick.AddListener(LeaveRoom);
     }
-    
+
     public override void OnLeftRoom()
     {
         onLeftRoom?.Invoke();
@@ -27,7 +30,7 @@ public class LeaveRoomButton : MonoBehaviourPunCallbacks
     
     private void LeaveRoom()
     {
+        PhotonNetwork.LocalPlayer.LeaveCurrentTeam();
         PhotonNetwork.LeaveRoom();
     }
-    
 }

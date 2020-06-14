@@ -69,4 +69,22 @@ public class HeroPickScreen : MonoBehaviour
     {
         isSearching = false;
     }
+
+    public void DisableScreen()
+    {
+        if (previewedHero != null)
+        {
+            Destroy(previewedHero);
+            selectedCell.Select(false);
+            selectedCell = null;
+            selectedCharacter = null;
+            heroInfoPanel.HideHeroData();
+            
+            if(isSearching)
+                cancelSearchButton.onClick.Invoke();
+            
+            playButton.gameObject.SetActive(false);
+            cancelSearchButton.gameObject.SetActive(false);
+        }
+    }
 }

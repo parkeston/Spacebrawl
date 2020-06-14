@@ -30,13 +30,15 @@ public class NetworkInitializer : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.IsConnected)
         {
             isConnecting = PhotonNetwork.ConnectUsingSettings();
-            PhotonNetwork.GameVersion = gameVersion;
+            PhotonNetwork.GameVersion = gameVersion; 
             
-           currentGameMode.Connecting();
+            currentGameMode.Connecting();
         }
         else
-        {
-           currentGameMode.ConnectingSuccess();
+        { 
+            
+            currentGameMode.ConnectingSuccess();
+            PhotonNetwork.JoinLobby();
         }
     }
 
@@ -48,7 +50,7 @@ public class NetworkInitializer : MonoBehaviourPunCallbacks
             currentGameMode.ConnectingSuccess();
             isConnecting = false;
         }
-
+        
         if (!PhotonNetwork.InLobby)
             PhotonNetwork.JoinLobby();
     }
@@ -57,6 +59,7 @@ public class NetworkInitializer : MonoBehaviourPunCallbacks
     {
         Debug.LogWarningFormat("PUN Basics Tutorial/Launcher: OnDisconnected() was called by PUN with reason {0}", cause);
         
-        currentGameMode.ConnectingFailed();
+        if(currentGameMode!=null)
+            currentGameMode.ConnectingFailed();
     }
 }

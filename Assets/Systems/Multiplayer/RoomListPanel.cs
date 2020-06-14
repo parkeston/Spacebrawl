@@ -15,10 +15,12 @@ public class RoomListPanel : MonoBehaviourPunCallbacks
     private readonly Dictionary<RoomInfo, RoomListItem> rooms = new Dictionary<RoomInfo, RoomListItem>();
 
     public RoomInfo SelectedRoom { get; private set; }
+    
 
     public override void OnDisable()
     {
         base.OnDisable();
+        
         foreach (var room in rooms)
         {
             Destroy(room.Value.gameObject);
