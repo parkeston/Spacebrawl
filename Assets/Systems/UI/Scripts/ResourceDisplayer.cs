@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 using UnityEngine;
 
 public class ResourceDisplayer : MonoBehaviour
@@ -10,6 +11,9 @@ public class ResourceDisplayer : MonoBehaviour
    [SerializeField] private UIResource uiResourcePrefab;
    [SerializeField] private GameObject canvasPrefab;
    [SerializeField] private Vector3 displayPositionOffset;
+
+   [SerializeField] private Color allyColor;
+   [SerializeField] private Color enemyColor;
 
    private static GameObject canvas;
    private UIResource uiResource;
@@ -23,8 +27,13 @@ public class ResourceDisplayer : MonoBehaviour
    {
       if (canvas == null)
          canvas = Instantiate(canvasPrefab);
-
+      
       uiResource = Instantiate(uiResourcePrefab, canvas.transform, false);
+      uiResource.SetResourceDisplayColor(
+         PhotonNetwork.LocalPlayer.GetPhotonTeam() == PhotonView.Get(this).Controller.GetPhotonTeam()
+            ? allyColor
+            : enemyColor);
+
       camera = Camera.main;
    }
    

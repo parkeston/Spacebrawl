@@ -208,6 +208,8 @@ MonoBehaviour:
   canvasPrefab: {fileID: 377411522621025448, guid: 80776b4e47dd6c045a74bf457485b7db,
     type: 3}
   displayPositionOffset: {x: 0, y: 2.5, z: 0}
+  allyColor: {r: 0, g: 0.8509804, b: 0.2627451, a: 1}
+  enemyColor: {r: 0.7924528, g: 0.2953008, b: 0.2953008, a: 1}
 --- !u!114 &5609065635798116319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +264,8 @@ MonoBehaviour:
   canvasPrefab: {fileID: 377411522621025448, guid: 80776b4e47dd6c045a74bf457485b7db,
     type: 3}
   displayPositionOffset: {x: 0, y: 2, z: 0}
+  allyColor: {r: 1, g: 0.65882355, b: 0, a: 1}
+  enemyColor: {r: 1, g: 0.65882355, b: 0, a: 1}
 --- !u!114 &5609065635798116291
 MonoBehaviour:
   m_ObjectHideFlags: 0

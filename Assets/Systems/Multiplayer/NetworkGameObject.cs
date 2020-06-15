@@ -33,12 +33,6 @@ public class NetworkGameObject : MonoBehaviour
       }
    }
 
-   private void OnEnable()
-   {
-      if(photonView.IsMine)
-         Activate(true,transform.position,transform.rotation);
-   }
-
    private void OnDisable()
    {
       //if (photonView.IsMine)

@@ -11,6 +11,12 @@ public class UIBar : UIResource
     [SerializeField] private Image fillImage;
     [SerializeField] private TMP_Text amountText;
 
+
+    public override void SetResourceDisplayColor(Color color)
+    {
+        fillImage.color = color;
+    }
+
     public override void UpdatePosition(Vector3 position)
     {
         transform.position = position;

@@ -84,6 +84,8 @@ MonoBehaviour:
   canvasPrefab: {fileID: 377411522621025448, guid: 80776b4e47dd6c045a74bf457485b7db,
     type: 3}
   displayPositionOffset: {x: 0, y: 1, z: 0}
+  allyColor: {r: 0, g: 0.8509804, b: 0.2627451, a: 1}
+  enemyColor: {r: 0, g: 0.8509804, b: 0.2627451, a: 1}
 --- !u!114 &4043302570742194844
 MonoBehaviour:
   m_ObjectHideFlags: 0
