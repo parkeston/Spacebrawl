@@ -39,6 +39,8 @@ MonoBehaviour:
   - ReflectStatChangesOnNetwork
   - SetParentOnNetwork
   - TeleportNetwork
+  - UpdateMatchScore
+  - DestroyOnNetwork
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -6,20 +6,18 @@ using UnityEngine;
 public class CharactersRoster : ScriptableObject
 {
     [SerializeField] private Character[] characters;
-    private readonly List<Character> selectedCharacters = new List<Character>();
+    private Character selectedCharacter;
 
     public int Length => characters.Length;
     public Character this[int i] => characters[i];
     
     public void MarkCharacterAsSelected(Character character)
     {
-        selectedCharacters.Add(character);
+        selectedCharacter = character;
     }
 
-    public Character[] GetCharactersToSpawn()
+    public Character GetCharactersToSpawn()
     {
-        var characterToSpawn = selectedCharacters.ToArray();
-        selectedCharacters.Clear();
-        return characterToSpawn;
+        return selectedCharacter;
     }
 }

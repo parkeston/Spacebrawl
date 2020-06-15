@@ -33,12 +33,23 @@ public class NetworkGameObject : MonoBehaviour
       }
    }
 
+   private void OnEnable()
+   {
+      if(photonView.IsMine)
+         Activate(true,transform.position,transform.rotation);
+   }
+
    private void OnDisable()
    {
       //if (photonView.IsMine)
       //{
          Activate(false,transform.position,transform.rotation);
       //}
+   }
+
+   private void OnDestroy()
+   {
+      photonView.RPC(nameof(DestroyOnNetwork),RpcTarget.Others);
    }
 
    public void SetParent(Transform parent, Vector3 localPosition)
@@ -69,5 +80,11 @@ public class NetworkGameObject : MonoBehaviour
       transform.position = position;
       transform.rotation = rotation;
       gameObject.SetActive(value);
+   }
+
+   [PunRPC]
+   private void DestroyOnNetwork()
+   {
+      Destroy(gameObject);
    }
 }
