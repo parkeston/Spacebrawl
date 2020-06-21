@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd6e0b2620f36e46a9837ee9c9c580b, type: 3}
+  m_Name: NewPybot
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  role: Ranged/Sniper
+  description: Hi mom
+  bio: Hi dad
+  characterPlayablePrefab: {fileID: 5609065636084029281, guid: 8389b6020793e9c4692cb5ff4db0ca6e,
+    type: 3}
+  characterPreviewPrefab: {fileID: 7276817926039205181, guid: ca87369a8eae64d4f99b7e03d24d61de,
+    type: 3}

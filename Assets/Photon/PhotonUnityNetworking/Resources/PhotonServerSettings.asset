@@ -33,14 +33,13 @@ MonoBehaviour:
   RpcList:
   - ActivateOnNetwork
   - ClickRpc
+  - DestroyOnNetwork
   - DestroyRpc
   - Modify
   - MoveNetwork
   - ReflectStatChangesOnNetwork
   - SetParentOnNetwork
   - TeleportNetwork
-  - UpdateMatchScore
-  - DestroyOnNetwork
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

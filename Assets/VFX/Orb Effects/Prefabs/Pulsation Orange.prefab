@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4633494124621214}
   - component: {fileID: 198198404065858778}
   - component: {fileID: 199260914735770916}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SmallOrb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3928,7 +3928,7 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 1
+    enabled: 0
     ratio: 1
     light: {fileID: 108932908133308428, guid: 82308f3ae15de3a49bad156cb76035d6, type: 3}
     randomDistribution: 1
@@ -4931,7 +4931,7 @@ GameObject:
   - component: {fileID: 4383168125861236}
   - component: {fileID: 198621991782054038}
   - component: {fileID: 199331422256191194}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pulsation Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9757,7 +9757,7 @@ GameObject:
   - component: {fileID: 4738627030698566}
   - component: {fileID: 198296950932810918}
   - component: {fileID: 199196809089144146}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BigOrb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14677,7 +14677,7 @@ GameObject:
   - component: {fileID: 4996293664611420}
   - component: {fileID: 198551566940485338}
   - component: {fileID: 199382185497200518}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Lines
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19431,7 +19431,7 @@ GameObject:
   - component: {fileID: 4767080867787382}
   - component: {fileID: 198237182555192640}
   - component: {fileID: 199217585366267000}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24351,7 +24351,7 @@ GameObject:
   - component: {fileID: 4288077352740114}
   - component: {fileID: 198250588762124110}
   - component: {fileID: 199392298546423164}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}

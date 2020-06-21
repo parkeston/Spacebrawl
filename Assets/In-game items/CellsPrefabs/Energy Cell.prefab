@@ -235,33 +235,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3885657570096860561}
     m_Modifications:
-    - target: {fileID: 1251726349009792, guid: 2b20a0bd56979d24ab3c7fe404e61909, type: 3}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
     - target: {fileID: 1351521820180088, guid: 2b20a0bd56979d24ab3c7fe404e61909, type: 3}
       propertyPath: m_Name
       value: Pulsation Orange
-      objectReference: {fileID: 0}
-    - target: {fileID: 1351521820180088, guid: 2b20a0bd56979d24ab3c7fe404e61909, type: 3}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1382360075146272, guid: 2b20a0bd56979d24ab3c7fe404e61909, type: 3}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1419460906012412, guid: 2b20a0bd56979d24ab3c7fe404e61909, type: 3}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1441366986511966, guid: 2b20a0bd56979d24ab3c7fe404e61909, type: 3}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692237786261352, guid: 2b20a0bd56979d24ab3c7fe404e61909, type: 3}
-      propertyPath: m_Layer
-      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4383168125861236, guid: 2b20a0bd56979d24ab3c7fe404e61909, type: 3}
       propertyPath: m_LocalPosition.x

@@ -18,7 +18,7 @@ MonoBehaviour:
   bio: 'Hello dad!
 
 '
-  characterPlayablePrefab: {fileID: 5609065636084029281, guid: a51459c3a36603449b004fbb737a466a,
+  characterPlayablePrefab: {fileID: 5609065636084029281, guid: ab733b1820aff6e47b2bf1b8db309cd7,
     type: 3}
-  characterPreviewPrefab: {fileID: 1644156356144118380, guid: f960e490f59d6cc4eb1b71e159b7085e,
+  characterPreviewPrefab: {fileID: 4940261025593414871, guid: 66945715b7a5e9a478a7aea3588a12b2,
     type: 3}
