@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd6e0b2620f36e46a9837ee9c9c580b, type: 3}
   m_Name: NewPybot
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 1ec1cb91f167f894eb40e27c632b715b, type: 3}
   role: Ranged/Sniper
   description: Hi mom
   bio: Hi dad

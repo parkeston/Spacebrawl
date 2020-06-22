@@ -15,6 +15,7 @@ public class NetworkInitializer : MonoBehaviourPunCallbacks
     
     void Awake()
     {
+        Application.targetFrameRate = 60;
         PhotonNetwork.AutomaticallySyncScene = true;
     }
 

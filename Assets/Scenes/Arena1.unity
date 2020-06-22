@@ -98,7 +98,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 473c162f3e85a2049bb4e969dbc5f848,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -3969,6 +3970,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 65
       objectReference: {fileID: 0}
+    - target: {fileID: 1664269169174470, guid: 5a073d16030e9bb4ab4bab71c3124066, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1813772808249330, guid: 5a073d16030e9bb4ab4bab71c3124066, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 65
@@ -7456,10 +7461,25 @@ PrefabInstance:
       propertyPath: m_BoxOffset.y
       value: -10.388247
       objectReference: {fileID: 0}
+    - target: {fileID: 9161721928307488787, guid: 968e4c1ba241f044b98ef70d6e3f823e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161721928307488787, guid: 968e4c1ba241f044b98ef70d6e3f823e,
+        type: 3}
+      propertyPath: m_IntensityMultiplier
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 9161721928307488812, guid: 968e4c1ba241f044b98ef70d6e3f823e,
         type: 3}
       propertyPath: m_Name
       value: Exterior Reflection Probe
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161721928307488812, guid: 968e4c1ba241f044b98ef70d6e3f823e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 968e4c1ba241f044b98ef70d6e3f823e, type: 3}
